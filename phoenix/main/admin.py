@@ -41,3 +41,7 @@ class OfficiantAdmin(admin.ModelAdmin):
     list_display = ('name', 'rest_id',)
     list_filter = ('name',)
     search_fields = ('name',)
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('name',)

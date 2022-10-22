@@ -6,7 +6,8 @@ from .models import *
 from .forms import *
 from django.urls import reverse
 from django.contrib.auth.forms import AuthenticationForm
-
+from phoenix import settings
+import datetime
 
 class Index(TemplateView):
     template_name = 'main/app.html'
@@ -43,6 +44,7 @@ def logout_user(request):
 def get_app_frame(request): 
     type = request.GET['frame'] 
     content = None
+    order = None
     if int(type) == 1:
         return redirect('home')
     elif int(type) == 2: 
@@ -55,8 +57,16 @@ def get_app_frame(request):
         if request.GET.get('rest_id'):
             rest_id = request.GET['rest_id']
         else:
-            return HttpResponse("дебил бля юра где rest_id сука ты блять сейчас по жопе дам")
+            return HttpResponse(settings.FRONT_MESSAGE)
         content = Table.objects.filter(rest_id=rest_id).all()
-            
-    return render(None, f'main/app_{type}.html', {"content": content})
+    elif int(type) == 6:
+        if request.GET.get('table_id'):
+            table_id = request.GET['table_id']
+        else:
+            return HttpResponse(settings.FRONT_MESSAGE)
+        table = Table.objects.get(id=table_id)
+        new_order = Order(status='p', start_date=datetime.datetime.now(), end_date=None, table_id=table)
+        new_order.save()
+        order = new_order.id
+    return render(None, f'main/app_{type}.html', {"content": content, "order": order})
 
