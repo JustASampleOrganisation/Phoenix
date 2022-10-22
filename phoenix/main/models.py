@@ -1,3 +1,5 @@
+from email.policy import default
+from tabnanny import verbose
 from django.db import models
 
 
@@ -6,8 +8,6 @@ class Restaurant(models.Model):
     address = models.TextField(verbose_name='Адрес')
     description = models.TextField(verbose_name='описание', default='lol')
     image = models.ImageField(verbose_name='Изображение', upload_to=f'restaurant/%Y/%m/%d/', default=None, blank=True, null=True)
-    
-
 
     class Meta:
         verbose_name = 'Ресторан'
@@ -17,13 +17,28 @@ class Restaurant(models.Model):
         return f"{self.name} {self.address}"
     
 
+class Category(models.Model):
+    name = models.TextField(verbose_name='Название')
+    
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+    
+    def __str__(self):
+        return f'{self.name}'
+
+
 class Product(models.Model):
     name = models.TextField(verbose_name='Наименование')
     price = models.FloatField(verbose_name='Цена')
-    description = models.TextField(verbose_name='Описание')
-
+    description = models.TextField(verbose_name='Описание', blank=True, default='Без описания')
+    sub_description = models.TextField(verbose_name='Sub.Описание', blank=True, default='Неизвестно')
+    legal_age = models.BooleanField(verbose_name='18+?', default=False)
+    categories = models.ManyToManyField(Category, verbose_name='Категории', default=[1])
+    
     rest_id = models.ForeignKey(Restaurant, verbose_name='Ресторан',
                                 on_delete=models.CASCADE)
+    
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
@@ -36,6 +51,7 @@ class Table(models.Model):
     number = models.IntegerField(verbose_name='Номер стола')
     rest_id = models.ForeignKey(Restaurant, verbose_name='Ресторан',
                                 on_delete=models.CASCADE)
+    
     class Meta:
         verbose_name = 'Стол'
         verbose_name_plural = 'Столы'
@@ -54,10 +70,11 @@ class Order(models.Model):
     status = models.CharField(max_length=15, choices=OrderStatus.choices,
                               verbose_name='Статус')
     start_date = models.DateTimeField(verbose_name='Дата начала')
-    end_date = models.DateTimeField(verbose_name='Дата окончания')
+    end_date = models.DateTimeField(verbose_name='Дата окончания', null=True, blank=True)
 
     table_id = models.ForeignKey(Table, verbose_name='Стол',
                                  on_delete=models.CASCADE)
+    
     class Meta:
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
