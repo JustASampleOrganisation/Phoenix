@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
+    <meta name="order_id" content="{{request.session.order_id}}">
+    <meta name="rest_id" content="{{request.session.rest_id}}">
+    <meta name="session_id" content="1">
+
+
 </head>
+
 <body>
+    <header>
+        <div class="site-name">
+            <h2>Phoenix App</h2>
+        </div>
+        <div class="menu-container">
+            <div class="start-menu">
+                <div class="user-and-description">
+                    <h1 class="start-menu-text">Гость 404, </h1>
+                    <a>Подробнее</a>
+                </div>
+                <h2 class='sale-level'>Ваш уровень скидки — 0%</h2>
+                <div class="reg-auth">
+                    <a href="/register">Зарегистрироваться</a>
+                    <a href="/login">Вход</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="order">
+        <div class="description">
+            <h1>
+                Ваш заказ
+            </h1>
+            <span>Обновить</span>
+        </div>
+        <div class="basket">
+            <div class="more-product">
+                <h1>Заказать ещё</h1>
+                <button onclick="GetProducts()">+</button>
+            </div>
+            <div class="orders">
+
+            </div>
+            <div class="summary">
+
+            </div>
+        </div>
+    </main>
 </body>
+
 </html>
