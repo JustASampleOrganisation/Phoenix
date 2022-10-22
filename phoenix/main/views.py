@@ -65,10 +65,10 @@ def get_app_frame(request):
     elif int(type) == 6:
         if request.GET.get('table_id'):
             table_id = request.GET['table_id']
-        elif request.GET.get('session_id'):
-            session_id = request.GET['session_id']
         else:
             return HttpResponse(settings.FRONT_MESSAGE)
+        if request.GET.get('session_id'):
+            session_id = request.GET['session_id']
         if not session_id:
             table = Table.objects.get(id=table_id)
             new_order = Order(status='p', start_date=datetime.datetime.now(), end_date=None, table_id=table)
