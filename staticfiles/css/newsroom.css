@@ -1,0 +1,22 @@
+.content {
+    position: relative;
+    width: 100%;
+    top: 10vh;
+    height: 80vh;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.content::-webkit-scrollbar {
+    width: 12px;               /* ширина scrollbar */
+  }
+  .content::-webkit-scrollbar-track {
+    background:  #F2F2F7;        /* цвет дорожки */
+  }
+  .content::-webkit-scrollbar-thumb {
+    background-color: #cfcfd8;    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+  }

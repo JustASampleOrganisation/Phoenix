@@ -1,0 +1,238 @@
+footer {
+    margin-bottom: 20px;
+    display: flex;
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    height: 40%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
+
+}
+
+.Routefuel-f img {
+    object-fit: cover;
+    width: 28px;
+    position: absolute;
+    left: 150px;
+    top: 6%;
+    bottom: 242px;
+    display: block;
+}
+
+.Routefuel-f a {
+    position: absolute;
+
+    left: 172px;
+    right: 5%;
+    top: 7%;
+
+    bottom: 242px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+
+
+    color: #000000;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 3;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
+
+.separator {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    border: 0.5px solid #8E8E93;
+}
+
+.RFL-Development {
+    position: absolute;
+    width: 133px;
+    height: 25px;
+    left: 149px;
+    top: 81.58px;
+    display: block;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.4px;
+
+    color: #000000;
+}
+
+.made-by {
+    position: absolute;
+    width: 200px;
+    height: 68px;
+    left: 149px;
+    top: 117px;
+    display: block;
+
+    font-family: 'Inter', 'sans-serif';
+
+    font-style: bold;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: -0.3px;
+
+    color: #000000;
+}
+
+.site-map {
+    position: absolute;
+    left: 501px;
+    /* right: 0; */
+    top: 2%;
+    /* bottom: 88.83%; */
+    display: block;
+
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    /* line-height: 22px; */
+    /* identical to box height */
+
+    letter-spacing: -0.5px;
+
+    color: #000000;
+
+}
+
+.Rf-f-site-map {
+    width: 200PX;
+    height: 500px;
+    position: absolute;
+    left: 500px;
+}
+
+.Rf-f-site-map  a{
+    position: relative;
+    left: -9px;
+    /* right: 68.97%; */
+    top: 56.5px;
+    /* bottom: 64.47%; */
+    display: block;
+    margin-top: 10px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    /* line-height: 17px; */
+    /* identical to box height */
+
+    letter-spacing: -0.5px;
+
+    color: #000000;
+}
+
+.subscribe {
+    position: absolute;
+    width: 86px;
+    height: 22px;
+    left: 800px;
+    top: 2%;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    /* identical to box height */
+
+    text-align: center;
+    letter-spacing: -0.5px;
+
+    color: #000000;
+}
+
+.send-your-email {
+    position: absolute;
+    width: 320px;
+    height: 36px;
+    left: 800px;
+    top: 22%;
+
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.3px;
+
+    color: #000000;
+}
+
+.write-subscribe {
+    position: absolute;
+    width: 350px;
+    height: 31px;
+    top: 46%;
+    left: 800px;
+
+}
+.write-subscribe input {
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    background: #F2F2F7;
+    width: 196px;
+    text-align: start;
+    height: 27px;
+    padding-left: 3%;
+}
+
+.write-subscribe input::placeholder {
+    left: 5%;
+    position: absolute;
+    top: 25%;
+}
+.write-subscribe input::target-text {
+    left: 5%;
+    position: absolute;
+    top: 25%;
+}
+
+.write-subscribe button {
+    border: none;
+    outline: none;
+    width: 106px;
+    height: 27px;
+    border-radius: 7px;
+    background: #007AFF;
+    color: white
+}
+
+.copyright {
+    position: absolute;
+    width: 350px;
+    height: 15px;
+    left: 46%;
+    top: 83%;
+    color: #000000;
+}
+
+.copyright p {
+    position: relative;
+    align-self: center;
+    text-align: center;
+}
