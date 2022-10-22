@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?{% now 'U' %}">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <title>{{title}}</title>
+</head>
+<body>
+    <header>
+        <div class="site-name"><h2>Phoenix App</h2></div>
+        <div class="menu-container">
+            <div class="start-menu">
+                {% for rest in content %}
+                <div class="rest-info">
+                    <div class="rest-img">
+                        {% if rest.image%}
+                        <img src="/media/{{rest.image}}">
+                        {% endif %}
+                    </div>
+                    <div class="rest-text">
+                        <h2 class="rest-name">{{rest.name}}</h1>
+                        <h3 class="rest-location">{{rest.address}}</h2>
+                        <p class="rest-desc">{{rest.description}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </header>
+</body>
+<script src="{% static 'js/index.js' %}?{% now 'U' %}"></script>
+</html>
