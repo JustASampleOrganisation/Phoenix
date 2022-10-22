@@ -121,6 +121,7 @@ def get_basket(request):
         if request.GET.get('tips'):
             summa += float(request.GET.get('tips'))
         results.append({'summa': summa})
+        results.append({'officiant': order.of_id.name})
         return HttpResponse(json.dumps(results, ensure_ascii=False).encode('utf-8'), content_type="application/json")
 
     else:
