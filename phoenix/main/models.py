@@ -98,6 +98,14 @@ class OrderBasket(models.Model):
     
     def __str__(self):
         return f"{self.id}"
+
+    def as_json(self):
+        return dict(
+            id=self.id,
+            order=self.order_id.id,
+            product=self.product_id.name,
+            number=self.number
+            )
     
         
 class Officiant(models.Model):
