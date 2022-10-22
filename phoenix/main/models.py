@@ -15,7 +15,7 @@ class Restaurant(models.Model):
     
     def __str__(self):
         return f"{self.name} {self.address}"
-    
+        
 
 class Category(models.Model):
     name = models.TextField(verbose_name='Название')
@@ -86,7 +86,6 @@ class Order(models.Model):
 
     table_id = models.ForeignKey(Table, verbose_name='Стол',
                                  on_delete=models.CASCADE)
-    
     of_id = models.ForeignKey(Officiant, verbose_name="Официант", on_delete=models.CASCADE, default=1, null=True)
     
     class Meta:
