@@ -4,10 +4,14 @@ from django.db import models
 class Restaurant(models.Model):
     name = models.TextField(verbose_name='Название')
     address = models.TextField(verbose_name='Адрес')
+    description = models.TextField(verbose_name='описание', default='lol')
+    image = models.ImageField(verbose_name='Изображение', upload_to=f'restaurant/%Y/%m/%d/', default=None, blank=True, null=True)
+    
+
 
     class Meta:
         verbose_name = 'Ресторан'
-        verbose_name_plural = 'Рестарны'
+        verbose_name_plural = 'Рестораны'
     
     def __str__(self):
         return f"{self.name} {self.address}"
@@ -27,6 +31,7 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.id} {self.name} {self.price}"
 
+
 class Table(models.Model):
     number = models.IntegerField(verbose_name='Номер стола')
     rest_id = models.ForeignKey(Restaurant, verbose_name='Ресторан',
@@ -37,7 +42,6 @@ class Table(models.Model):
     
     def __str__(self):
         return f"{self.number}"
-
 
 
 class OrderStatus(models.TextChoices):
@@ -60,6 +64,7 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.id}  {self.status} {self.start_date}"
+
 
 class OrderBasket(models.Model):
     order_id = models.ForeignKey(Order, verbose_name='Заказ',
