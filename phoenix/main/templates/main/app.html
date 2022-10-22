@@ -9,6 +9,22 @@
     <title>{{title}}</title>
 </head>
 <body>
-    
+    <header>
+        <div class="site-name"><h2>Phoenix App</h2></div>
+        <div class="menu-container">
+            <div class="start-menu">
+                <h1 class="start-menu-text">Добрый вечер!</h1>
+                <button class="start-menu-qr-scan">Сканировать QR-код</button>
+                <button class="start-menu-handler">Выбрать вручную</button class="start-menu-handler">
+            </div>
+        </div>
+    </header>
+    <main>
+        <img src="{% static 'assets/bg.jpg' %}">
+        <div class="auth-container">
+            <button class="registr">Зарегистрироваться</button>
+            <button class="login">Войти</button>
+        </div>
+    </main>
 </body>
 </html>
