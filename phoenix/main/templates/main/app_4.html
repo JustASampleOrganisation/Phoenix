@@ -12,25 +12,25 @@
 <body>
     <header>
         <div class="site-name"><h2>Phoenix App</h2></div>
-        <div class="menu-container">
-            <div class="start-menu">
-                {% for rest in content %}
-                <div class="rest-info">
-                    <div class="rest-img">
-                        {% if rest.image%}
-                        <img src="/media/{{rest.image}}">
-                        {% endif %}
-                    </div>
-                    <div class="rest-text">
-                        <h2 class="rest-name">{{rest.name}}</h1>
-                        <h3 class="rest-location">{{rest.address}}</h2>
-                        <p class="rest-desc">{{rest.description}}</p>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
     </header>
+    <div class="menu-container" id='app-4'>
+        <div class="start-menu" id='app-4'>
+            {% for rest in content %}
+            <div class="rest-info">
+                <div class="rest-img">
+                    {% if rest.image%}
+                    <img src="/media/{{rest.image}}">
+                    {% endif %}
+                </div>
+                <div class="rest-text">
+                    <h2 class="rest-name">{{rest.name}}</h1>
+                    <h3 class="rest-location">{{rest.address}}</h2>
+                    <p class="rest-desc">{{rest.description}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 <script src="{% static 'js/index.js' %}?{% now 'U' %}"></script>
 </html>
