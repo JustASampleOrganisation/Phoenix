@@ -1,9 +1,14 @@
+from email.policy import default
 from django.db import models
 
 
 class Restaurant(models.Model):
     name = models.TextField(verbose_name='Название')
     address = models.TextField(verbose_name='Адрес')
+    description = models.TextField(verbose_name='описание', default='lol')
+    image = models.ImageField(verbose_name='Изображение', upload_to=f'restaurant/%Y/%m/%d/', default=None, blank=True, null=True)
+    
+
 
     class Meta:
         verbose_name = 'Ресторан'
