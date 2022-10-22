@@ -66,6 +66,18 @@ class OrderStatus(models.TextChoices):
     canceled = 'c', 'Отменённый'
 
 
+class Officiant(models.Model):
+    name = models.TextField(verbose_name='ФИО')
+    rest_id = models.ForeignKey(Restaurant, verbose_name='Ресторан', on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name = 'Официант'
+        verbose_name_plural = 'Официанты'
+    
+    def __str__(self):
+        return f"{self.name}"
+
+
 class Order(models.Model):
     status = models.CharField(max_length=15, choices=OrderStatus.choices,
                               verbose_name='Статус')
@@ -74,6 +86,8 @@ class Order(models.Model):
 
     table_id = models.ForeignKey(Table, verbose_name='Стол',
                                  on_delete=models.CASCADE)
+    
+    of_id = models.ForeignKey(Officiant, verbose_name="Официант", on_delete=models.CASCADE, default=1, null=True)
     
     class Meta:
         verbose_name = 'Заказ'
@@ -104,17 +118,8 @@ class OrderBasket(models.Model):
             id=self.id,
             order=self.order_id.id,
             product=self.product_id.name,
+            price=self.product_id.price,
             number=self.number
             )
     
         
-class Officiant(models.Model):
-    name = models.TextField(verbose_name='ФИО')
-    rest_id = models.ForeignKey(Restaurant, verbose_name='Ресторан', on_delete=models.CASCADE)
-    
-    class Meta:
-        verbose_name = 'Официант'
-        verbose_name_plural = 'Официанты'
-    
-    def __str__(self):
-        return f"{self.name}"
