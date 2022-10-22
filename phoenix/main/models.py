@@ -15,7 +15,7 @@ class Restaurant(models.Model):
     
     def __str__(self):
         return f"{self.name} {self.address}"
-    
+        
 
 class Category(models.Model):
     name = models.TextField(verbose_name='Название')
@@ -34,8 +34,9 @@ class Product(models.Model):
     description = models.TextField(verbose_name='Описание', blank=True, default='Без описания')
     sub_description = models.TextField(verbose_name='Sub.Описание', blank=True, default='Неизвестно')
     legal_age = models.BooleanField(verbose_name='18+?', default=False)
-    categories = models.ManyToManyField(Category, verbose_name='Категории', default=[1])
+    image = models.ImageField(verbose_name='Изображение', upload_to=f'product/%Y/%m/%d/', default=None, blank=True, null=True)
     
+    categories = models.ManyToManyField(Category, verbose_name='Категории', default=[1])
     rest_id = models.ForeignKey(Restaurant, verbose_name='Ресторан',
                                 on_delete=models.CASCADE)
     
@@ -86,7 +87,6 @@ class Order(models.Model):
 
     table_id = models.ForeignKey(Table, verbose_name='Стол',
                                  on_delete=models.CASCADE)
-    
     of_id = models.ForeignKey(Officiant, verbose_name="Официант", on_delete=models.CASCADE, default=1, null=True)
     
     class Meta:
