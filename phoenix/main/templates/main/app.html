@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?{% now 'U' %}">
+    <title>{{title}}</title>
+</head>
+<body>
+    <header>
+        <div class="site-name"><h2>Phoenix App</h2></div>
+        <div class="menu-container">
+            <div class="start-menu">
+                {% if request.user.is_authenticated %}
+                <h1 class="start-menu-text">{{user.username}}, Добрый вечер!</h1>
+                {% else %}
+                <h1 class="start-menu-text">Добрый вечер!</h1>
+                {% endif %}
+                <button class="start-menu-qr-scan">Сканировать QR-код</button>
+                <button class="start-menu-handler">Выбрать вручную</button class="start-menu-handler">
+            </div>
+        </div>
+    </header>
+    <main>
+        <img src="{% static 'assets/bg.jpg' %}">
+        <div class="auth-container">
+            <button class="registr" onclick="window.location = '{% url 'register' %}'">Зарегистрироваться</button>
+            <button class="login" onclick="window.location = '{% url 'login' %}'">Войти</button>
+        </div>
+    </main>
+    <script src="{% static 'js/index.js' %}?{% now 'U' %}"></script>
+
+</body>
+</html>
