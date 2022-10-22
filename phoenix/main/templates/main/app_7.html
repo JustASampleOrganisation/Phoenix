@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="order_id" content="{{request.session.order_id}}">
+    <meta name="rest_id" content="{{request.session.rest_id}}">
+    <meta name="session_id" content="1">
+
+    <title>Продукты</title>
+</head>
+
+<body>
+    <header>
+        <div class="site-name">
+            <h2>Phoenix App</h2>
+        </div>
+    </header>
+
+    <div class="menu-container" id='app-4'>
+        <span onclick="BackBasket()">Назад</span>
+
+        <div class="start-menu" id='app-4'>
+            <h2 style="    position: absolute;
+            top: 7%;">В каком вы ресторане?</h2>
+            {% for rest in content %}
+            <div class="rest-info" data-id={{rest.id}} onclick=''>
+                <img src="{% static 'assets/cafeimg.jpg' %}">
+                <div class="rest-text">
+                    <h2 class="rest-name">{{rest.name}}</h1>
+                        <h3 class="rest-location">{{rest.price}}</h2>
+                    <p class="rest-desc">{{rest.description}}</p>
+                    <p>{{rest.description}}</p>
+                    <button onclick="addToBasket('{{rest.id}}')">+</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
