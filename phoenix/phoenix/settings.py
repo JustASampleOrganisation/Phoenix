@@ -131,4 +131,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-FRONT_MESSAGE = 'дебил бля юра где ты блять поле потерял сука ты блять сейчас по жопе получишь'
+FRONT_MESSAGE = 'Required fields error'
