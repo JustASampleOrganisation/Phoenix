@@ -115,10 +115,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+if not DEBUG:
+    STATIC_URL = '/home/SPCode7/Phoenix/phoenix/static/'
 
-STATIC_URL = '/home/SPCode7/Phoenix/phoenix/static/'
-
-STATIC_ROOT = '/home/SPCode7/Phoenix/phoenix/staticfiles/'
+    STATIC_ROOT = '/home/SPCode7/Phoenix/phoenix/staticfiles/'
+else:
+    STATIC_URL = '/static/'
+    STATIC_ROOT = 'staticfiles/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 
 MEDIA_URL = '/media/'

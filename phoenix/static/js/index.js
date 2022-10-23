@@ -59,7 +59,7 @@ function ChoiceTable() {
                     console.log(response);
                     if (response.length > 1) {
                         for (var i = 0; i < response.length; i++) {
-                            document.querySelector('.orders').insertAdjacentHTML('beforeend', `<h2>${response[i].product} ${response[i].price}Р</h2>`)
+                            if (response[i].product) document.querySelector('.orders').insertAdjacentHTML('beforeend', `<h2>${response[i].product} ${response[i].price}Р</h2>`)
                         }
                     }
 
@@ -91,10 +91,10 @@ function BackBasket() {
                     console.log(response);
                     if (response.length > 1) {
                         for (var i = 0; i < response.length; i++) {
-                            if (response[i].summa) continue;
-                            document.querySelector('.orders').insertAdjacentHTML('beforeend', `<h2>${response[i].product} ${response[i].price}Р</h2>`)
+
+                            if (response[i].officiant) continue;
+                            if (response[i].product) document.querySelector('.orders').insertAdjacentHTML('beforeend', `<h2>${response[i].product} ${response[i].price}Р</h2>`)
                         }
-                        document.querySelector('.summary').insertAdjacentHTML('beforeend', `Итого: ${response[response.length - 1].summa}Р`)
                     }
                 },
                 failed: function(error) {
@@ -107,6 +107,25 @@ function BackBasket() {
         }
     })
 }
+
+
+function PayOrder() {
+    var order_id = parseInt(document.querySelector('meta[name="order_id"]').attributes.content.value);
+    $.ajax({
+        type: "GET",
+        url: `/get_app_frame?frame=12&order_id=${order_id}`,
+        success: function(response) {
+            console.log(response);
+            alert('Оплата совершена!');
+            window.location = '/';
+        },
+        failed: function(error) {
+            alert(error);
+        }
+    });
+}
+
+
 
 $('.start-menu-handler').click(function(e) {
     $.ajax({

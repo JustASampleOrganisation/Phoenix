@@ -65,6 +65,8 @@ def get_app_frame(request):
     elif int(type) == 6:
         if request.GET.get('table_id'):
             table_id = request.GET['table_id']
+        elif request.GET.get('session_id'):
+            session_id = request.GET['session_id']
         else:
             return HttpResponse(settings.FRONT_MESSAGE)
         if request.GET.get('session_id'):
@@ -100,7 +102,8 @@ def get_app_frame(request):
         order.end_date = datetime.datetime.now()
         order.status = 'd'
         order.save()
-    
+        del request.session['order_id']
+        return HttpResponse("success")
     return render(request, f'main/app_{type}.html', {"content": content})
 
 # def do_purchaise(request):

@@ -301,9 +301,9 @@ span {
 .basket {
     box-sizing: border-box;
     position: absolute;
-    width: 357px;
+    width: 80%;
     height: 690px;
-    left: 59px;
+    left: 10%;
     top: 79%;
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -342,6 +342,22 @@ header span {
     position: fixed;
     top: 16%;
     left: 12%;
+    color: white;
+    font-size: 23px;
     text-shadow: none;
     font-weight: bolder;
+}
+
+.button-pay {
+    top: 94%;
+    /* left: 37%; */
+    border: none;
+    outline: none;
+    color: white;
+    width: 110px;
+    border-radius: 14px;
+    height: 33px;
+    background: black;
+    text-align: center;
+    position: fixed;
 }
