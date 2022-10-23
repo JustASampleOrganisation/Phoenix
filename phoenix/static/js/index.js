@@ -82,8 +82,8 @@ function BackBasket() {
         type: 'GET',
         url: `/get_app_frame?frame=6&session_id=${session_id}`,
         success: function(response) {
-            document.querySelector('body').innerHTML = response;
             var order_id = parseInt(document.querySelector('meta[name="order_id"]').attributes.content.value);
+            document.querySelector('body').innerHTML = response;
             $.ajax({
                 type: "GET",
                 url: `/get_basket?order_id=${order_id}`,

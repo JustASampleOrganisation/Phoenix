@@ -26,7 +26,7 @@ header {
     position: fixed;
     width: 100vw;
     height: 25vh;
-    background: #0F9565;
+    background: #000000;
 }
 
 .site-name {
@@ -158,7 +158,7 @@ main {
     border: none;
     width: 20vw;
     height: max-content;
-    background: #0F9565;
+    background: #000000;
     color: white;
     padding: 1rem;
     border-radius: 1rem;
@@ -173,7 +173,7 @@ main {
     border: none;
     width: 80%;
     height: max-content;
-    background: #0F9565;
+    background: #000000;
     color: white;
     padding: 1rem;
     border-radius: 1rem;
@@ -247,7 +247,7 @@ form {
     border: none;
     width: 80%;
     height: max-content;
-    background: #0F9565;
+    background: #000000;
     color: white;
     padding: 1rem;
     border-radius: 1rem;
