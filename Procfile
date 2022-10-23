@@ -1,0 +1,1 @@
+web: gunicorn phoenix.wsgi --log-file -
